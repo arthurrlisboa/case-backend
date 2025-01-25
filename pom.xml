@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.case</groupId>
-	<artifactId>backend</artifactId>
+	<artifactId>case-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backend</name>
+	<name>case-backend</name>
 	<description>Teste Prático de Engenharia Backend - Simulador de Crédito</description>
 	<url/>
 	<licenses>
