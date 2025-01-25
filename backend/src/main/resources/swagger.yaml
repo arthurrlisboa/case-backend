@@ -4,11 +4,8 @@ info:
   description: |-
     This is a Loan Simulation Server based on the OpenAPI 3.0 specification.
   version: 1.0.11
-externalDocs:
-  description: Find out more about Swagger
-  url: http://swagger.io
 servers:
-  - url: https://petstore3.swagger.io/api/v1
+  - url: http:/localhost:8080/api/v1
 tags:
   - name: Loan Simulation
     description: Fast loan simulations
@@ -21,13 +18,9 @@ paths:
       description: |
         This endpoint receives the client and loan data and returns the monthly installment amount,
         the total payment amount, and the total interest paid.
+      operationId: processLoanSimulation
       requestBody:
-        description: Data for the loan simulation
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LoanSimulation'
+        $ref: '#/components/requestBodies/LoanSimulationRequest'
       responses:
         '200':
           description: Loan simulation completed successfully.
@@ -57,7 +50,7 @@ paths:
                     example: "Error processing the loan simulation."
 components:
   schemas:
-    LoanSimulation:
+    LoanSimulationData:
       type: object
       properties:
         loanAmount:
@@ -71,6 +64,10 @@ components:
           type: integer
           format: int32
           example: 22
+      required:
+        - loanAmount
+        - clientBirthDate
+        - paymentTermMonths
     LoanSimulationResponse:
       description: Loan simulation result
       type: object
@@ -89,18 +86,18 @@ components:
           example: 1009.00
 
   requestBodies:
-    LoanSimulation:
+    LoanSimulationRequest:
       description: Data required for loan simulation
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/LoanSimulation'
+            $ref: '#/components/schemas/LoanSimulationData'
 
-    LoanSimulationArray:
+    LoanSimulationRequestArray:
       description: List of loan simulation object
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/LoanSimulation'
+              $ref: '#/components/schemas/LoanSimulationData'
