@@ -6,9 +6,9 @@ import challenge.application.workflow.item.core.LoanSimulationWorkflow;
 import com.challenge.backend.model.LoanSimulationData;
 import com.challenge.backend.model.LoanSimulationResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class SimpleLoanSimulationWorkflow{
 
