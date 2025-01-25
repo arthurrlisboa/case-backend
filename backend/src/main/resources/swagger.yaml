@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: Case backend - loan simulations
+  description: |-
+    This is a Loan Simulation Server based on the OpenAPI 3.0 specification.
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://petstore3.swagger.io/api/v1
+tags:
+  - name: Loan Simulation
+    description: Fast loan simulations
+paths:
+  /loan/simulation:
+    post:
+      tags:
+        - Loan Simulation
+      summary: Perform a personalized loan simulation for a client.
+      description: |
+        This endpoint receives the client and loan data and returns the monthly installment amount,
+        the total payment amount, and the total interest paid.
+      requestBody:
+        description: Data for the loan simulation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoanSimulation'
+      responses:
+        '200':
+          description: Loan simulation completed successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanSimulationResponse'
+        '400':
+          description: Invalid or missing request data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "The provided parameters are invalid or missing required data."
+        '500':
+          description: Error processing the loan simulation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Error processing the loan simulation."
+components:
+  schemas:
+    LoanSimulation:
+      type: object
+      properties:
+        loanAmount:
+          type: number
+          format: double
+          example: 1000.89
+        clientBirthDate:
+          type: string
+          example: "20-10-1999"
+        paymentTermMonths:
+          type: integer
+          format: int32
+          example: 22
+    LoanSimulationResponse:
+      description: Loan simulation result
+      type: object
+      properties:
+        totalPaymentAmount:
+          type: number
+          format: double
+          example: 2009.89
+        monthlyInstallmentAmount:
+          type: number
+          format: double
+          example: 120.89
+        totalInterestPaid:
+          type: number
+          format: double
+          example: 1009.00
+
+  requestBodies:
+    LoanSimulation:
+      description: Data required for loan simulation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LoanSimulation'
+
+    LoanSimulationArray:
+      description: List of loan simulation object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/LoanSimulation'
