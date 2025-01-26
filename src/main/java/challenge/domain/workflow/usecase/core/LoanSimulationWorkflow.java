@@ -1,4 +1,4 @@
-package challenge.domain.workflow.item.core;
+package challenge.domain.workflow.usecase.core;
 
 import challenge.domain.workflow.activity.core.simple.CalculateMonthlyInstallmentAmountActivity;
 import challenge.domain.workflow.activity.core.simple.CreateLoanSimulationResponseActivity;

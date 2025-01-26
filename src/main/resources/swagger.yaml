@@ -33,11 +33,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: "The provided parameters are invalid or missing required data."
+                $ref: '#/components/schemas/LoanSimulationErrorResponse'
         '500':
           description: Error processing the loan simulation.
           content:
@@ -81,6 +77,11 @@ components:
         totalInterestPaid:
           type: string
           example: "R$ 2.950,46"
+    LoanSimulationErrorResponse:
+      properties:
+        error:
+          type: string
+          example: "The provided parameters are invalid or missing required data."
 
   requestBodies:
     LoanSimulationRequest:
