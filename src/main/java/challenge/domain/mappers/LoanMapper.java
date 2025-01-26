@@ -1,8 +1,8 @@
 package challenge.domain.mappers;
 
+import challenge.domain.util.CurrencyUtil;
 import challenge.domain.workflow.input.LoanSimulationInput;
 import challenge.domain.workflow.output.LoanSimulationResult;
-import challenge.domain.util.CurrencyUtil;
 import challenge.model.LoanSimulationData;
 import challenge.model.LoanSimulationResponse;
 import org.mapstruct.Mapper;
@@ -16,7 +16,8 @@ public interface LoanMapper {
     @Mapping(target = "totalPaymentAmount", expression = "java(formatToBRL(source.getTotalPaymentAmount()))")
     @Mapping(target = "monthlyInstallmentAmount", expression = "java(formatToBRL(source.getMonthlyInstallmentAmount()))")
     @Mapping(target = "totalInterestPaid", expression = "java(formatToBRL(source.getTotalInterestPaid()))")
-    LoanSimulationResponse toLoanSimulationResponse(LoanSimulationResult source);
+    @Mapping(target = "userEmail", source = "userEmail")
+    LoanSimulationResponse toLoanSimulationResponse(LoanSimulationResult source, String userEmail);
 
     default String formatToBRL(Double amount) {
         return CurrencyUtil.formatToBRL(amount);

@@ -14,9 +14,9 @@ paths:
     post:
       tags:
         - Loan Simulation
-      summary: Perform a personalized loan simulation for a client.
+      summary: Perform a loan simulation for a client.
       description: |
-        This endpoint receives the client and loan data and returns the monthly installment amount,
+        This endpoint receives the client loan data and returns the monthly installment amount,
         the total payment amount, and the total interest paid.
       operationId: processLoanSimulation
       requestBody:
@@ -44,11 +44,50 @@ paths:
                   error:
                     type: string
                     example: "Error processing the loan simulation."
+  /loan/simulation/list:
+    post:
+      tags:
+        - Loan Simulation
+      summary: Perform a loan simulation for a list of clients.
+      description: |
+        This endpoint receives a list of loan data and returns, for each loan, the monthly installment amount,
+        the total payment amount, and the total interest paid.
+      operationId: processLoanSimulationList
+      requestBody:
+        $ref: '#/components/requestBodies/LoanSimulationRequestList'
+      responses:
+        '200':
+          description: Loan simulations completed successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LoanSimulationResponse'
+        '400':
+          description: Invalid or missing request data for some simulation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanSimulationErrorResponse'
+        '500':
+          description: Error processing a loan simulation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Error processing a loan simulation."
 components:
   schemas:
     LoanSimulationData:
       type: object
       properties:
+        userEmail:
+          type: string
+          example: "user@exemple.com"
         loanAmount:
           type: number
           format: double
@@ -61,6 +100,7 @@ components:
           format: int32
           example: 10
       required:
+        - userEmail
         - loanAmount
         - clientBirthDate
         - paymentTermMonths
@@ -68,6 +108,9 @@ components:
       description: Loan simulation result
       type: object
       properties:
+        userEmail:
+          type: string
+          example: "user@exemple.com"
         totalPaymentAmount:
           type: string
           example: "R$ 12.950,46"
@@ -91,7 +134,7 @@ components:
           schema:
             $ref: '#/components/schemas/LoanSimulationData'
 
-    LoanSimulationRequestArray:
+    LoanSimulationRequestList:
       description: List of loan simulation object
       content:
         application/json:

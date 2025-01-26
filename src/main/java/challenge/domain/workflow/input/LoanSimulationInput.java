@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LoanSimulationInput {
 
+    private String userEmail;
     private Double loanAmount;
     private String clientBirthDate;
     private Integer paymentTermMonths;

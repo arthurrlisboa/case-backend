@@ -13,7 +13,7 @@ public class ParseLoanResultToLoanSimulationResponseActivity {
 
     private final @NonNull LoanMapper loanMapper;
 
-    public LoanSimulationResponse execute(LoanSimulationResult loanSimulationResult) {
-        return loanMapper.toLoanSimulationResponse(loanSimulationResult);
+    public LoanSimulationResponse execute(LoanSimulationResult loanSimulationResult, String userEmail) {
+        return loanMapper.toLoanSimulationResponse(loanSimulationResult, userEmail);
     }
 }

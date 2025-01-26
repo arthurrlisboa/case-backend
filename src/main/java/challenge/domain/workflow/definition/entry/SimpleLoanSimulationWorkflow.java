@@ -23,6 +23,9 @@ public class SimpleLoanSimulationWorkflow{
         validateLoanSimulationDataActivity.execute(loanSimulationData);
         var loanSimulationInput = parseLoanSimulationDataToInputActivity.execute(loanSimulationData);
         var loanSimulationResult = loanSimulationWorkflow.execute(loanSimulationInput);
-        return parseLoanResultToLoanSimulationResponseActivity.execute(loanSimulationResult);
+        return parseLoanResultToLoanSimulationResponseActivity.execute(
+                loanSimulationResult,
+                loanSimulationInput.getUserEmail()
+        );
     }
 }
