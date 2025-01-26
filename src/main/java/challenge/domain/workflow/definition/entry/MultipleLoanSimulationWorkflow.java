@@ -5,14 +5,15 @@ import challenge.model.LoanSimulationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 public class MultipleLoanSimulationWorkflow {
 
+    private final SimpleLoanSimulationWorkflow simpleLoanSimulationWorkflow;
+
     public List<LoanSimulationResponse> execute(List<LoanSimulationData> loanSimulationDataList) {
-        return Collections.emptyList();
+        return loanSimulationDataList.stream().map(simpleLoanSimulationWorkflow::execute).toList();
     }
 }

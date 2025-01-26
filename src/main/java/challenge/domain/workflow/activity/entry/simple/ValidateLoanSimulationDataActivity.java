@@ -16,6 +16,7 @@ import static challenge.domain.constants.MessageConstants.INVALID_LOAN_SIMULATIO
 import static challenge.domain.enums.LoanSimulationInvalidParametersEnum.*;
 import static challenge.domain.util.CurrencyUtil.formatToBRL;
 import static challenge.domain.util.DateUtils.isValidDateFormatDdMmYyyy;
+import static challenge.domain.util.EmailUtils.isValidEmail;
 
 @Component
 @RequiredArgsConstructor
@@ -25,6 +26,7 @@ public class ValidateLoanSimulationDataActivity {
 
     public void execute(LoanSimulationData loanSimulationData) {
         var invalidParameterMessages = new ArrayList<String>();
+        validateUserEmail(loanSimulationData.getUserEmail(), invalidParameterMessages);
         validateClientBirthDate(loanSimulationData.getClientBirthDate(), invalidParameterMessages);
         validateLoanAmount(loanSimulationData.getLoanAmount(), invalidParameterMessages);
         validatePaymentTermMonths(loanSimulationData.getPaymentTermMonths(), invalidParameterMessages);
@@ -32,6 +34,12 @@ public class ValidateLoanSimulationDataActivity {
         if(!invalidParameterMessages.isEmpty()){
             var errorMessage = String.join(" || ", invalidParameterMessages);
             throw new InvalidLoanSimulationRequestDataException(getErrorMessage(errorMessage));
+        }
+    }
+
+    private void validateUserEmail(String userEmail, List<String> invalidParameterMessageList) {
+        if(StringUtils.isBlank(userEmail) || !isValidEmail(userEmail)) {
+            invalidParameterMessageList.add(INVALID_USER_EMAIL.getMessage());
         }
     }
 

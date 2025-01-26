@@ -12,6 +12,11 @@ public class AppConstants {
     }
 
     @UtilityClass
+    public static class EmailConstants {
+        public static final String VALID_EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    }
+
+    @UtilityClass
     public static class CurrencyConstants {
         public static final String ZERO_BRL = "R$ 0,00";
         public static final String CURRENCY_CODE_BRL = "BRL";
