@@ -1,7 +1,7 @@
 package challenge.domain.workflow.activity.entry.simple;
 
-import challenge.domain.workflow.output.LoanSimulationResult;
 import challenge.domain.mappers.LoanMapper;
+import challenge.domain.workflow.output.LoanSimulationResult;
 import challenge.model.LoanSimulationResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
