@@ -10,7 +10,7 @@ public class LoanCalculationService {
             Double loanAmount,
             Double monthlyInterestRate
     ) {
-        var factor = Math.pow(1 + monthlyInterestRate, numberOfInstallments);
-        return loanAmount * monthlyInterestRate * factor / (factor - 1);
+        var factor = Math.pow(1 + monthlyInterestRate, -numberOfInstallments);
+        return loanAmount * monthlyInterestRate/ (1 - factor);
     }
 }

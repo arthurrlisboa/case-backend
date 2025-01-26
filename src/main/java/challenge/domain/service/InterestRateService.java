@@ -11,7 +11,7 @@ public class InterestRateService {
 
     public Double getInterestRate(Integer clientAge) {
         return Arrays.stream(RatePerAgeGroupEnum.values())
-                .filter(group -> clientAge.compareTo(group.getUpperLimit()) < 0)
+                .filter(group -> clientAge.compareTo(group.getUpperLimit()) <= 0)
                 .findFirst()
                 .map(RatePerAgeGroupEnum::getRate)
                 .orElseThrow(RateByAgeGroupNotFoundException::new);

@@ -5,7 +5,7 @@ info:
     This is a Loan Simulation Server based on the OpenAPI 3.0 specification.
   version: 1.0.11
 servers:
-  - url: http://localhost:8080/api/v1
+  - url: http://localhost:8080
 tags:
   - name: Loan Simulation
     description: Fast loan simulations
@@ -56,10 +56,10 @@ components:
         loanAmount:
           type: number
           format: double
-          example: 1000.89
+          example: 10000.00
         clientBirthDate:
           type: string
-          example: "20-10-1999"
+          example: "20/10/1999"
         paymentTermMonths:
           type: integer
           format: int32
@@ -74,13 +74,13 @@ components:
       properties:
         totalPaymentAmount:
           type: string
-          example: "R$ 2009.89"
+          example: "R$ 12.950,46"
         monthlyInstallmentAmount:
           type: string
-          example: "R$ 209.89"
+          example: "R$ 1.295,05"
         totalInterestPaid:
           type: string
-          example: "R$ 1009.00"
+          example: "R$ 2.950,46"
 
   requestBodies:
     LoanSimulationRequest:

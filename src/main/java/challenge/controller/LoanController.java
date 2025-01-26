@@ -1,15 +1,15 @@
 package challenge.controller;
 
-import challenge.domain.workflow.item.entry.SimpleLoanSimulationWorkflow;
 import challenge.api.LoanApi;
+import challenge.domain.workflow.item.entry.SimpleLoanSimulationWorkflow;
 import challenge.model.LoanSimulationData;
 import challenge.model.LoanSimulationResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class LoanController implements LoanApi {
 
