@@ -1,7 +1,7 @@
 package challenge.controller;
 
 import challenge.api.LoanApi;
-import challenge.domain.workflow.usecase.entry.SimpleLoanSimulationWorkflow;
+import challenge.domain.workflow.definition.entry.SimpleLoanSimulationWorkflow;
 import challenge.model.LoanSimulationData;
 import challenge.model.LoanSimulationResponse;
 import lombok.NonNull;

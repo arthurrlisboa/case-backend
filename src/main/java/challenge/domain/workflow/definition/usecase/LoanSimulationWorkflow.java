@@ -1,8 +1,8 @@
-package challenge.domain.workflow.usecase.core;
+package challenge.domain.workflow.definition.usecase;
 
-import challenge.domain.workflow.activity.core.simple.CalculateMonthlyInstallmentAmountActivity;
-import challenge.domain.workflow.activity.core.simple.CreateLoanSimulationResponseActivity;
-import challenge.domain.workflow.activity.core.simple.GetClientLoanRateActivity;
+import challenge.domain.workflow.activity.usecase.simple.CalculateMonthlyInstallmentAmountActivity;
+import challenge.domain.workflow.activity.usecase.simple.CreateLoanSimulationResponseActivity;
+import challenge.domain.workflow.activity.usecase.simple.GetClientLoanRateActivity;
 import challenge.domain.workflow.input.LoanSimulationInput;
 import challenge.domain.workflow.output.LoanSimulationResult;
 import lombok.NonNull;

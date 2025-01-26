@@ -1,4 +1,4 @@
-package challenge.domain.workflow.activity.core.simple;
+package challenge.domain.workflow.activity.usecase.simple;
 
 import challenge.domain.workflow.input.LoanSimulationInput;
 import challenge.domain.workflow.output.LoanSimulationResult;

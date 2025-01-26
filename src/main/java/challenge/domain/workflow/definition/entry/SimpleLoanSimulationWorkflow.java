@@ -1,9 +1,9 @@
-package challenge.domain.workflow.usecase.entry;
+package challenge.domain.workflow.definition.entry;
 
 import challenge.domain.workflow.activity.entry.simple.ParseLoanResultToLoanSimulationResponseActivity;
 import challenge.domain.workflow.activity.entry.simple.ParseLoanSimulationDataToInputActivity;
 import challenge.domain.workflow.activity.entry.simple.ValidateLoanSimulationDataActivity;
-import challenge.domain.workflow.usecase.core.LoanSimulationWorkflow;
+import challenge.domain.workflow.definition.usecase.LoanSimulationWorkflow;
 import challenge.model.LoanSimulationData;
 import challenge.model.LoanSimulationResponse;
 import lombok.NonNull;
