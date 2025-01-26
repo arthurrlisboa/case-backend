@@ -1,7 +1,7 @@
 package challenge.domain.workflow.definition.entry;
 
-import challenge.domain.workflow.activity.entry.simple.ParseLoanResultToLoanSimulationResponseActivity;
 import challenge.domain.workflow.activity.entry.ParseLoanSimulationDataToInputActivity;
+import challenge.domain.workflow.activity.entry.simple.ParseLoanResultToLoanSimulationResponseActivity;
 import challenge.domain.workflow.activity.entry.simple.ValidateLoanSimulationDataActivity;
 import challenge.domain.workflow.definition.usecase.LoanSimulationWorkflow;
 import challenge.model.LoanSimulationData;
