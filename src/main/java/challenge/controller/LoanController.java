@@ -4,6 +4,7 @@ import challenge.api.LoanApi;
 import challenge.domain.workflow.definition.entry.MultipleLoanSimulationWorkflow;
 import challenge.domain.workflow.definition.entry.SimpleLoanSimulationWorkflow;
 import challenge.model.LoanSimulationData;
+import challenge.model.LoanSimulationItemResponse;
 import challenge.model.LoanSimulationResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +26,9 @@ public class LoanController implements LoanApi {
     }
 
     @Override
-    public ResponseEntity<List<LoanSimulationResponse>> processLoanSimulationList(
+    public ResponseEntity<List<LoanSimulationItemResponse>> processLoanSimulationList(
             List<LoanSimulationData> loanSimulationData
     ) {
-        return ResponseEntity.ok(multipleLoanSimulationWorkflow.execute(loanSimulationData));
+        return ResponseEntity.ok(multipleLoanSimulationWorkflow.executeAsync(loanSimulationData));
     }
 }

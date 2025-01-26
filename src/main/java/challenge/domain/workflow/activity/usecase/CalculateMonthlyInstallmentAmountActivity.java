@@ -1,4 +1,4 @@
-package challenge.domain.workflow.activity.usecase.simple;
+package challenge.domain.workflow.activity.usecase;
 
 import challenge.domain.service.LoanCalculationService;
 import lombok.RequiredArgsConstructor;

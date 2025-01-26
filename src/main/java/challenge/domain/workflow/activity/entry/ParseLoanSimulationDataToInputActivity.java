@@ -1,4 +1,4 @@
-package challenge.domain.workflow.activity.entry.simple;
+package challenge.domain.workflow.activity.entry;
 
 import challenge.domain.mappers.LoanMapper;
 import challenge.domain.workflow.input.LoanSimulationInput;

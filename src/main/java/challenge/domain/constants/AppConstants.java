@@ -28,4 +28,9 @@ public class AppConstants {
         public static final Integer MIN_PAYMENT_TERM_MONTHS = 2;
         public static final Double MIN_LOAN_AMOUNT = 50.00;
     }
+
+    @UtilityClass
+    public static class ConfigConstants {
+        public static final Integer MAX_CONCURRENT_THREADS = 200;
+    }
 }

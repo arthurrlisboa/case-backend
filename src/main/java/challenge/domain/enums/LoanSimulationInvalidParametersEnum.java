@@ -12,7 +12,5 @@ public enum LoanSimulationInvalidParametersEnum {
     INVALID_PAYMENT_TERM_MONTH("The loan term must be at least %s months. Please provide a valid term"),
     INVALID_USER_EMAIL("The email address is invalid. Please provide a valid email address");
 
-
     private final String message;
-
 }

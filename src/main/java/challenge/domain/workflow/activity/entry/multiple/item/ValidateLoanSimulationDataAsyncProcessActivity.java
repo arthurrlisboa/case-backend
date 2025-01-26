@@ -1,6 +1,5 @@
-package challenge.domain.workflow.activity.entry.simple;
+package challenge.domain.workflow.activity.entry.multiple.item;
 
-import challenge.domain.exceptions.InvalidLoanSimulationRequestDataException;
 import challenge.domain.service.LoanSimulationDataValidationService;
 import challenge.model.LoanSimulationData;
 import io.micrometer.common.util.StringUtils;
@@ -12,8 +11,6 @@ import java.util.List;
 
 import static challenge.domain.constants.AppConstants.LoanSimulationDataConstants.MIN_LOAN_AMOUNT;
 import static challenge.domain.constants.AppConstants.LoanSimulationDataConstants.MIN_PAYMENT_TERM_MONTHS;
-import static challenge.domain.constants.MessageConstants.INVALID_LOAN_SIMULATION_DATA_MESSAGE_TEMPLATE;
-import static challenge.domain.constants.MessageConstants.MESSAGE_DELIMITER;
 import static challenge.domain.enums.LoanSimulationInvalidParametersEnum.*;
 import static challenge.domain.util.CurrencyUtil.formatToBRL;
 import static challenge.domain.util.DateUtils.isValidDateFormatDdMmYyyy;
@@ -21,21 +18,18 @@ import static challenge.domain.util.EmailUtils.isValidEmail;
 
 @Component
 @RequiredArgsConstructor
-public class ValidateLoanSimulationDataActivity {
+public class ValidateLoanSimulationDataAsyncProcessActivity {
 
     private final LoanSimulationDataValidationService loanSimulationDataValidationService;
 
-    public void execute(LoanSimulationData loanSimulationData) {
+    public List<String> execute(LoanSimulationData loanSimulationData) {
         var invalidParameterMessages = new ArrayList<String>();
         validateUserEmail(loanSimulationData.getUserEmail(), invalidParameterMessages);
         validateClientBirthDate(loanSimulationData.getClientBirthDate(), invalidParameterMessages);
         validateLoanAmount(loanSimulationData.getLoanAmount(), invalidParameterMessages);
         validatePaymentTermMonths(loanSimulationData.getPaymentTermMonths(), invalidParameterMessages);
 
-        if(!invalidParameterMessages.isEmpty()){
-            var errorMessage = String.join(MESSAGE_DELIMITER, invalidParameterMessages);
-            throw new InvalidLoanSimulationRequestDataException(getErrorMessage(errorMessage));
-        }
+        return invalidParameterMessages;
     }
 
     private void validateUserEmail(String userEmail, List<String> invalidParameterMessageList) {
@@ -62,9 +56,5 @@ public class ValidateLoanSimulationDataActivity {
             var message = String.format(INVALID_PAYMENT_TERM_MONTH.getMessage(), MIN_PAYMENT_TERM_MONTHS);
             invalidParameterMessageList.add(message);
         }
-    }
-
-    private static String getErrorMessage(String errorMessages) {
-        return INVALID_LOAN_SIMULATION_DATA_MESSAGE_TEMPLATE + errorMessages;
     }
 }

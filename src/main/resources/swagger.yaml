@@ -63,23 +63,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LoanSimulationResponse'
-        '400':
-          description: Invalid or missing request data for some simulation.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LoanSimulationErrorResponse'
+                  $ref: '#/components/schemas/LoanSimulationItemResponse'
         '500':
           description: Error processing a loan simulation.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: "Error processing a loan simulation."
+                $ref: '#/components/schemas/LoanSimulationErrorResponse'
 components:
   schemas:
     LoanSimulationData:
@@ -120,6 +110,18 @@ components:
         totalInterestPaid:
           type: string
           example: "R$ 2.950,46"
+    LoanSimulationItemResponse:
+      description: Loan simulation result
+      type: object
+      properties:
+        loanSimulationResponse:
+            $ref: '#/components/schemas/LoanSimulationResponse'
+        success:
+          type: boolean
+          example: true
+        errorMessage:
+          type: string
+          example: "The provided parameters are invalid or missing required data."
     LoanSimulationErrorResponse:
       properties:
         error:
