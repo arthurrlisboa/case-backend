@@ -2,7 +2,7 @@ package challenge.domain.workflow.activity.entry.simple;
 
 import challenge.domain.workflow.input.LoanSimulationInput;
 import challenge.domain.mappers.LoanMapper;
-import com.challenge.backend.model.LoanSimulationData;
+import challenge.model.LoanSimulationData;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

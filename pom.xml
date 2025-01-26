@@ -8,24 +8,12 @@
 		<version>3.4.1</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.case</groupId>
+	<groupId>challenge</groupId>
 	<artifactId>case-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>case-backend</name>
 	<description>Teste Prático de Engenharia Backend - Simulador de Crédito</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+
 	<properties>
 		<java.version>23</java.version>
 		<org.mapstruct.version>1.6.3</org.mapstruct.version>
@@ -52,12 +40,6 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-docker-compose</artifactId>-->
-<!--			<scope>runtime</scope>-->
-<!--			<optional>true</optional>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -146,8 +128,8 @@
 								${project.basedir}/src/main/resources/swagger.yaml
 							</inputSpec>
 							<generatorName>spring</generatorName>
-							<apiPackage>com.challenge.backend.api</apiPackage>
-							<modelPackage>com.challenge.backend.model</modelPackage>
+							<apiPackage>challenge.api</apiPackage>
+							<modelPackage>challenge.model</modelPackage>
 							<supportingFilesToGenerate>
 								ApiUtil.java
 							</supportingFilesToGenerate>
@@ -156,7 +138,6 @@
 								<delegatePattern>true</delegatePattern>
 								<interfaceOnly>true</interfaceOnly>
 								<useJakartaEe>true</useJakartaEe>
-								<!--								<useSpringBoot3>true</useSpringBoot3>-->
 							</configOptions>
 						</configuration>
 					</execution>
