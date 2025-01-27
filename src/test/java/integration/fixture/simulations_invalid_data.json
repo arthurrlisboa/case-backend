@@ -1,0 +1,62 @@
+[
+  {
+    "userEmail": "user1@test.com",
+    "loanAmount": -5000.00,
+    "clientBirthDate": "15/05/1985",
+    "paymentTermMonths": 12
+  },
+  {
+    "userEmail": "user2@test.com",
+    "loanAmount": 15000.00,
+    "clientBirthDate": "25-12-1990",
+    "paymentTermMonths": 24
+  },
+  {
+    "userEmail": ".com",
+    "loanAmount": 2500.00,
+    "clientBirthDate": "10/07/2000",
+    "paymentTermMonths": -12
+  },
+  {
+    "userEmail": "user4@test.com",
+    "loanAmount": 20000.00,
+    "clientBirthDate": "05/03/1982",
+    "paymentTermMonths": 0
+  },
+  {
+    "userEmail": "user5@test.com",
+    "loanAmount": 49.00,
+    "clientBirthDate": "30/11/1995",
+    "paymentTermMonths": 36
+  },
+  {
+    "userEmail": "user6@testcom",
+    "loanAmount": -12000.00,
+    "clientBirthDate": "32/08/1993",
+    "paymentTermMonths": 12
+  },
+  {
+    "userEmail": "user7@test.com",
+    "loanAmount": 8000.00,
+    "clientBirthDate": "03/01/1988",
+    "paymentTermMonths": 0
+  },
+  {
+    "userEmail": "@test.com",
+    "loanAmount": 18000.00,
+    "clientBirthDate": "17/04/1992",
+    "paymentTermMonths": 0
+  },
+  {
+    "userEmail": "user9@com",
+    "loanAmount": -10000.00,
+    "clientBirthDate": "20/10/1999",
+    "paymentTermMonths": 10
+  },
+  {
+    "userEmail": "user10test.com",
+    "loanAmount": 22000.00,
+    "clientBirthDate": "13/09/1980",
+    "paymentTermMonths": 48
+  }
+]
