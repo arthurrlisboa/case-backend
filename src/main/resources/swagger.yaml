@@ -1,0 +1,146 @@
+openapi: 3.0.3
+info:
+  title: Case backend - loan simulations
+  description: |-
+    This is a Loan Simulation Server based on the OpenAPI 3.0 specification.
+  version: 1.0.11
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Loan Simulation
+    description: Fast loan simulations
+paths:
+  /loan/simulation:
+    post:
+      tags:
+        - Loan Simulation
+      summary: Perform a loan simulation for a client.
+      description: |
+        This endpoint receives the client loan data and returns the monthly installment amount,
+        the total payment amount, and the total interest paid.
+      operationId: processLoanSimulation
+      requestBody:
+        $ref: '#/components/requestBodies/LoanSimulationRequest'
+      responses:
+        '200':
+          description: Loan simulation completed successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanSimulationResponse'
+        '400':
+          description: Invalid or missing request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanSimulationErrorResponse'
+        '500':
+          description: Error processing the loan simulation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Error processing the loan simulation."
+  /loan/simulation/list:
+    post:
+      tags:
+        - Loan Simulation
+      summary: Perform a loan simulation for a list of clients.
+      description: |
+        This endpoint receives a list of loan data and returns, for each loan, the monthly installment amount,
+        the total payment amount, and the total interest paid.
+      operationId: processLoanSimulationList
+      requestBody:
+        $ref: '#/components/requestBodies/LoanSimulationRequestList'
+      responses:
+        '200':
+          description: Loan simulations completed successfully.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LoanSimulationItemResponse'
+        '500':
+          description: Error processing a loan simulation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoanSimulationErrorResponse'
+components:
+  schemas:
+    LoanSimulationData:
+      type: object
+      properties:
+        userEmail:
+          type: string
+          example: "user@exemple.com"
+        loanAmount:
+          type: number
+          format: double
+          example: 10000.00
+        clientBirthDate:
+          type: string
+          example: "20/10/1999"
+        paymentTermMonths:
+          type: integer
+          format: int32
+          example: 10
+      required:
+        - userEmail
+        - loanAmount
+        - clientBirthDate
+        - paymentTermMonths
+    LoanSimulationResponse:
+      description: Loan simulation result
+      type: object
+      properties:
+        userEmail:
+          type: string
+          example: "user@exemple.com"
+        totalPaymentAmount:
+          type: string
+          example: "R$ 12.950,46"
+        monthlyInstallmentAmount:
+          type: string
+          example: "R$ 1.295,05"
+        totalInterestPaid:
+          type: string
+          example: "R$ 2.950,46"
+    LoanSimulationItemResponse:
+      description: Loan simulation result
+      type: object
+      properties:
+        loanSimulationResponse:
+            $ref: '#/components/schemas/LoanSimulationResponse'
+        success:
+          type: boolean
+          example: true
+        errorMessage:
+          type: string
+          example: "The provided parameters are invalid or missing required data."
+    LoanSimulationErrorResponse:
+      properties:
+        error:
+          type: string
+          example: "The provided parameters are invalid or missing required data."
+
+  requestBodies:
+    LoanSimulationRequest:
+      description: Data required for loan simulation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LoanSimulationData'
+
+    LoanSimulationRequestList:
+      description: List of loan simulation object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/LoanSimulationData'
