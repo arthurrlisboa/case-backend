@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static challenge.application.util.CurrencyUtil.formatToBRL;
 import static challenge.domain.constants.AppConstants.CurrencyConstants.ZERO_BRL;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CurrencyUtilTest {
 

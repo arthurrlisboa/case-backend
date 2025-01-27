@@ -12,7 +12,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static challenge.domain.constants.MessageConstants.*;
+import static challenge.domain.constants.MessageConstants.INVALID_LOAN_SIMULATION_DATA_MESSAGE_TEMPLATE;
+import static challenge.domain.constants.MessageConstants.MESSAGE_DELIMITER;
 import static challenge.domain.enums.LoanSimulationInvalidParametersEnum.INVALID_CLIENT_BIRTH_DATE;
 import static challenge.domain.enums.LoanSimulationInvalidParametersEnum.INVALID_LOAN_AMOUNT;
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -2,7 +2,6 @@ package challenge.application.util;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.convert.DataSizeUnit;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
