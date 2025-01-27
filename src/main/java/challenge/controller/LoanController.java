@@ -1,8 +1,8 @@
 package challenge.controller;
 
 import challenge.api.LoanApi;
-import challenge.domain.workflow.definition.entry.MultipleLoanSimulationWorkflow;
-import challenge.domain.workflow.definition.entry.SimpleLoanSimulationWorkflow;
+import challenge.application.workflow.definition.entry.MultipleLoanSimulationWorkflow;
+import challenge.application.workflow.definition.entry.SimpleLoanSimulationWorkflow;
 import challenge.model.LoanSimulationData;
 import challenge.model.LoanSimulationItemResponse;
 import challenge.model.LoanSimulationResponse;

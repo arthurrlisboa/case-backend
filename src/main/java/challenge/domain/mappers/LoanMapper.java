@@ -1,8 +1,8 @@
 package challenge.domain.mappers;
 
-import challenge.domain.util.CurrencyUtil;
-import challenge.domain.workflow.input.LoanSimulationInput;
-import challenge.domain.workflow.output.LoanSimulationResult;
+import challenge.application.util.CurrencyUtil;
+import challenge.application.workflow.input.LoanSimulationInput;
+import challenge.application.workflow.output.LoanSimulationResult;
 import challenge.model.LoanSimulationData;
 import challenge.model.LoanSimulationResponse;
 import org.mapstruct.Mapper;
