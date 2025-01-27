@@ -51,14 +51,14 @@ public class ValidateLoanSimulationDataActivity {
     }
 
     private void validateLoanAmount(Double loanAmount, List<String> invalidParameterMessageList) {
-        if(!loanSimulationDataValidationService.isValidLoanAmount(loanAmount)){
+        if(loanSimulationDataValidationService.isInvalidLoanAmount(loanAmount)){
             var message = String.format(INVALID_LOAN_AMOUNT.getMessage(), formatToBRL(MIN_LOAN_AMOUNT));
             invalidParameterMessageList.add(message);
         }
     }
 
     private void validatePaymentTermMonths(Integer paymentTermMonths, List<String> invalidParameterMessageList) {
-        if(!loanSimulationDataValidationService.isValidPaymentTerm(paymentTermMonths)){
+        if(loanSimulationDataValidationService.isInvalidPaymentTerm(paymentTermMonths)){
             var message = String.format(INVALID_PAYMENT_TERM_MONTH.getMessage(), MIN_PAYMENT_TERM_MONTHS);
             invalidParameterMessageList.add(message);
         }

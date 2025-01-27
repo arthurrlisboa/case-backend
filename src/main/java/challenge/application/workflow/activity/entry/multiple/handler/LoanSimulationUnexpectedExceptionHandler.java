@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import static challenge.domain.constants.MessageConstants.UNEXPECTED_LOAN_SIMULATION_ERROR_MESSAGE_TEMPLATE;
 
 @Component
-public class HandleLoanSimulationUnexpectedExcpetion {
+public class LoanSimulationUnexpectedExceptionHandler {
 
     public LoanSimulationItemResponse handleException(LoanSimulationData loanSimulationData, Exception e) {
         return new LoanSimulationItemResponse()
