@@ -17,7 +17,8 @@ public class SimpleLoanSimulationWorkflow{
     private final @NonNull ValidateLoanSimulationDataActivity validateLoanSimulationDataActivity;
     private final @NonNull ParseLoanSimulationDataToInputActivity parseLoanSimulationDataToInputActivity;
     private final @NonNull LoanSimulationWorkflow loanSimulationWorkflow;
-    private final @NonNull ParseLoanResultToLoanSimulationResponseActivity parseLoanResultToLoanSimulationResponseActivity;
+    private final @NonNull ParseLoanResultToLoanSimulationResponseActivity
+            parseLoanResultToLoanSimulationResponseActivity;
 
     public LoanSimulationResponse execute(LoanSimulationData loanSimulationData) {
         validateLoanSimulationDataActivity.execute(loanSimulationData);

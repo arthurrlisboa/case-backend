@@ -8,11 +8,11 @@ import static challenge.domain.constants.AppConstants.LoanSimulationDataConstant
 @Service
 public class LoanSimulationDataValidationService {
 
-    public boolean isValidLoanAmount(Double loanAmount) {
-        return loanAmount.compareTo(MIN_LOAN_AMOUNT) >= 0;
+    public boolean isInvalidLoanAmount(Double loanAmount) {
+        return loanAmount.compareTo(MIN_LOAN_AMOUNT) < 0;
     }
 
-    public boolean isValidPaymentTerm(Integer paymentTermMonths) {
-        return paymentTermMonths >= MIN_PAYMENT_TERM_MONTHS;
+    public boolean isInvalidPaymentTerm(Integer paymentTermMonths) {
+        return paymentTermMonths < MIN_PAYMENT_TERM_MONTHS;
     }
 }

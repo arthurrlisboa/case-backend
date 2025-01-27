@@ -1,7 +1,7 @@
 package challenge.application.workflow.definition.entry.asyncprocess.item;
 
 import challenge.application.workflow.activity.entry.ParseLoanSimulationDataToInputActivity;
-import challenge.application.workflow.activity.entry.multiple.handler.HandleLoanSimulationUnexpectedExcpetion;
+import challenge.application.workflow.activity.entry.multiple.handler.LoanSimulationUnexpectedExceptionHandler;
 import challenge.application.workflow.activity.entry.multiple.item.ParseResultToLoanSimulationItemResponseActivity;
 import challenge.application.workflow.definition.core.LoanSimulationWorkflow;
 import challenge.model.LoanSimulationData;
@@ -18,7 +18,7 @@ public class ProcessValidLoanSimulationWorkflow {
     private final @NonNull LoanSimulationWorkflow loanSimulationWorkflow;
     private final @NonNull ParseResultToLoanSimulationItemResponseActivity
             parseResultToLoanSimulationItemResponseActivity;
-    private final @NonNull HandleLoanSimulationUnexpectedExcpetion handleLoanSimulationUnexpectedExcpetion;
+    private final @NonNull LoanSimulationUnexpectedExceptionHandler loanSimulationUnexpectedExceptionHandler;
 
     public LoanSimulationItemResponse execute(LoanSimulationData loanSimulationData){
         try{
@@ -29,7 +29,7 @@ public class ProcessValidLoanSimulationWorkflow {
                     loanSimulationInput.getUserEmail()
             );
         } catch (Exception e) {
-            return handleLoanSimulationUnexpectedExcpetion.handleException(loanSimulationData, e);
+            return loanSimulationUnexpectedExceptionHandler.handleException(loanSimulationData, e);
         }
     }
 }
