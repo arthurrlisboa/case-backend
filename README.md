@@ -39,6 +39,7 @@ Após garantir que o Java 23 está configurado corretamente, compile e execute a
 
 ```bash
 mvn clean install
+mvn package
 mvn spring-boot:run
 ```
 
